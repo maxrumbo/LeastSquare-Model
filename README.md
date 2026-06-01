@@ -1,1 +1,1 @@
-# leastsquare-foodrecommendation
+# Final Project for Linear Algebra
