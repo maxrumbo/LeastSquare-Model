@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # 1. Load Data & Transformasi Matriks User-Item
-df_filtered = pd.read_csv('../rating_final.csv')[['userID', 'placeID', 'food_rating']]
+df_filtered = pd.read_csv('../dataset/rating_final.csv')[['userID', 'placeID', 'food_rating']]
 matrix_df = df_filtered.pivot_table(index='userID', columns='placeID', values='food_rating').fillna(0)
 R = matrix_df.to_numpy()
 
@@ -42,6 +42,7 @@ for i in range(5):
     skor = prediksi_menu_baru[rekomendasi_idx[i]]
     place_id = matrix_df.columns[idx_asli] 
     
+    # Hati-hati, tanda kurung di baris print dan append ini jangan sampai kepotong
     print(f"{i+1}. Place ID: {place_id} (Prediksi Rating: {skor:.4f})")
     
     data_ekspor.append({
